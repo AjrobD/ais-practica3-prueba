@@ -95,7 +95,7 @@ jobs:
   url_tests:
     name: Tests on Heroku URL
     runs-on: ubuntu-latest
-    needs: [build]
+    needs: [deploy_to_heroku]
     steps:
     - name: Run Rest Test
       run: mvn '-Dtest=es.urjc.code.daw.library.e2e.rest.*Test' -DHost=ais-practica3-prueba.herokuapp.com test
