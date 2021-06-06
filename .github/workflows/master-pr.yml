@@ -1,9 +1,9 @@
-name: develop-pr
+name: master-pr
 
 on: 
   pull_request:
     branches:
-      - develop
+      - master
   
   workflow_dispatch:
 
