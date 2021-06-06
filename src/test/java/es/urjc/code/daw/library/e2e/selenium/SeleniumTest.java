@@ -55,7 +55,11 @@ public class SeleniumTest {
 	public void createBookTest() throws Exception {
 
         // GIVEN: Partiendo de que estamos en la página principal de la libreria
-        this.driver.get("http://localhost:"+this.port+"/");
+
+        // Recogemos el host
+        String host = System.getProperty("host", "localhost");
+        
+        this.driver.get("http://"+host+":"+this.port+"/");
 
         // WHEN: Creamos un nuevo libro
 
