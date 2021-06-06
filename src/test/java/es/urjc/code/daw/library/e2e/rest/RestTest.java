@@ -28,7 +28,10 @@ public class RestTest {
     public void setUp() {
         //Recogemos el host
         String host = System.getProperty("host", "localhost");
-        RestAssured.baseURI = "http://"+host+":"+port + "/";
+        if(host.equals("localhost"))
+            RestAssured.baseURI = "http://"+host+":"+port + "/";
+        else
+            RestAssured.baseURI ="http://"+host+"/";
     }
 
     @Autowired

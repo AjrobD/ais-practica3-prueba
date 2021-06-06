@@ -58,8 +58,10 @@ public class SeleniumTest {
 
         // Recogemos el host
         String host = System.getProperty("host", "localhost");
-        
-        this.driver.get("http://"+host+":"+this.port+"/");
+        if(host.equals("localhost"))
+            this.driver.get("http://"+host+":"+this.port+"/");
+        else
+            this.driver.get("http://"+host+"/");
 
         // WHEN: Creamos un nuevo libro
 
