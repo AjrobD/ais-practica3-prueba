@@ -51,6 +51,7 @@ jobs:
           run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/items:${{ steps.project.outputs.tag }} .
         - name: Push image to DockerHub
           run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/items:${{ steps.project.outputs.tag }}
+
   publish_in_heroku_registry:
     name: Publish in Heroku Registry
     runs-on: ubuntu-latest
@@ -62,7 +63,7 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v2
       - name: Download Jar from previous job
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v2
         with:
           name: target
       - name: Build Docker Image
