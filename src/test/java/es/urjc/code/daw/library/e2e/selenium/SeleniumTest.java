@@ -81,7 +81,12 @@ public class SeleniumTest {
 	public void deleteBookTest() throws Exception {
 
         // GIVEN: Partiendo de que estamos en la página principal de la libreria
-        this.driver.get("http://localhost:"+this.port+"/");
+        // Recogemos el host
+        String host = System.getProperty("host", "localhost");
+        if(host.equals("localhost"))
+            this.driver.get("http://"+host+":"+this.port+"/");
+        else
+            this.driver.get("http://"+host+"/");
 
         // WHEN: 
         
