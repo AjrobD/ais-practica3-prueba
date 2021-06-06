@@ -22,3 +22,5 @@ jobs:
       run: mvn -B package -DskipTests
     - name: Run Unitary Test
       run: mvn '-Dtest=es.urjc.code.daw.library.unitary.*Test' test
+  - name: Run Rest Test
+      run: mvn -B '-Dtest=es.urjc.code.daw.library.e2e.rest.*Test' test
